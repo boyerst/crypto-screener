@@ -1,5 +1,7 @@
-import { Browser Router } from "react-router-dom";
-import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./Components/Header";
+import Homepage from "./Pages/Homepage";
 
 
 
@@ -8,6 +10,9 @@ function App() {
     <BrowserRouter>
       <div>
         <Header />
+        
+        <Route path='/' component={Homepage} />
+     
       </div>
     </BrowserRouter>
   );
@@ -16,3 +21,8 @@ function App() {
 
 
 export default App;
+
+
+
+
+
