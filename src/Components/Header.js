@@ -1,11 +1,17 @@
 import React from 'react';
-
+import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 
 const Header = () => {
   return (
-    <div>
-      Header 
-    </div>
+    <AppBar color='transparent' position='static'>
+      <Container>
+        <Toolbar>
+          <Typography>
+            App Name
+          </Typography>
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
 
