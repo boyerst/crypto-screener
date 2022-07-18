@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, createTheme, ThemeProvider, AppBar, Container, Toolbar, Typography, Select, MenuItem  } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
 
 
 const useStyles = makeStyles(() => ({
@@ -21,6 +22,8 @@ const Header = () => {
   const classes = useStyles();
 
   const history = useHistory();
+
+  const { currency, setCurrency } = CryptoState()
 
   const darkTheme = createTheme({
     palette: {
