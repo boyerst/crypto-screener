@@ -1,12 +1,30 @@
 import React from 'react';
-import { AppBar, Container, Toolbar, Typography, Select, MenuItem  } from "@material-ui/core";
+import { makeStyles, AppBar, Container, Toolbar, Typography, Select, MenuItem  } from "@material-ui/core";
+
+
+
+const useStyles = makeStyles(() => ({
+  title: {
+    // Spread to it's full width
+    flex: 1, 
+    color: "gold",
+    fontFamily: "Montserrat",
+    fontWeight: "bold",
+    cursor: "pointer"
+  }
+}))
+
+
 
 const Header = () => {
+
+  const classes = useStyles()
+
   return (
     <AppBar color='transparent' position='static'>
       <Container>
         <Toolbar>
-          <Typography>App Name</Typography>
+          <Typography className={classes.title}>App Name</Typography>
           <Select 
             variant="outlined"
             style={{
@@ -15,8 +33,8 @@ const Header = () => {
               marginLeft: 15
             }}
             >
-            <MenuItem>USD</MenuItem>
-            <MenuItem>INR</MenuItem>
+            <MenuItem value={"USD"}>USD</MenuItem>
+            <MenuItem value={"INR"}>INR</MenuItem>
           </Select>
         </Toolbar>
       </Container>
