@@ -22,8 +22,10 @@ const Header = () => {
   const classes = useStyles();
 
   const history = useHistory();
-
+  // Imported from CryptoState...
   const { currency, setCurrency } = CryptoState()
+
+  console.log(currency)
 
   const darkTheme = createTheme({
     palette: {
@@ -53,6 +55,10 @@ const Header = () => {
                 height: 40, 
                 marginRight: 15
               }}
+              // The value prop displays the selected value
+              value={currency}
+              // When user selects diff. currency it sets to that currency
+              onChange={(e) => setCurrency(e.target.value)}
               >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
