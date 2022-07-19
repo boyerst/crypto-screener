@@ -22,7 +22,7 @@ const Header = () => {
   const classes = useStyles();
 
   const history = useHistory();
-  // Imported from CryptoState...
+  // We call/access our imported useContext() hook from here
   const { currency, setCurrency } = CryptoState()
 
   console.log(currency)
@@ -59,7 +59,7 @@ const Header = () => {
               value={currency}
               // When user selects diff. currency it sets to that currency
               onChange={(e) => setCurrency(e.target.value)}
-              >
+            >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
