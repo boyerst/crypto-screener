@@ -34,6 +34,16 @@ const Banner = () => {
           >
             Crypto Screener
           </Typography>
+          <Typography
+            variant="subtitle2"
+            style={{
+              color: "darkgrey",
+              textTransform: "capitalize",
+              fontFamily: "Montserrat",
+            }}
+          >
+            Find Info For All Your Favorite Cryptos
+          </Typography>
         </div>
       </Container>
     </div>
