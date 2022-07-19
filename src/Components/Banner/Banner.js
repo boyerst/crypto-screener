@@ -1,4 +1,4 @@
-import { Container, makeStyles } from "@material-ui/core";
+import { makeStyles, Container, Typography  } from "@material-ui/core";
 
 
 
@@ -23,8 +23,17 @@ const Banner = () => {
   return (
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>
-        <div>
-          
+        <div className={classes.tagline}>
+          <Typography
+            variant="h2"
+            style={{
+              fontWeight: "bold",
+              marginBottom: 15, 
+              fontFamily: "Montserrat",
+            }}
+          >
+            Crypto Screener
+          </Typography>
         </div>
       </Container>
     </div>
