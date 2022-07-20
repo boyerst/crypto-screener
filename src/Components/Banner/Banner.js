@@ -13,6 +13,13 @@ const useStyles = makeStyles(() => ({
     paddingTop: 25, 
     justifyContent: "space-around",
   },
+  tagline: {
+    display: "flex",
+    height: "40%",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center"
+  }
 }));
 
 
