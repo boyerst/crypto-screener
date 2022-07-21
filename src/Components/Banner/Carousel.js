@@ -73,17 +73,25 @@ const Carousel = () => {
           src={coin?.image}
           alt={coin.name}
           height="80"
-          style={{marginBotom: 10}} />
-        <span>{coin?.symbol}
+          style={{marginBottom: 10}} 
+        />
+        <span>
+          {coin?.symbol}
           &nbsp;
-          <span>
+          <span  
+            style={{
+              color: profit > 0 ? "rgb(14, 203, 129)" : "red",
+              fontWeight: 500,
+            }}
+          >
           {/* If there is profit within 24H then add a "+"  /   Then add the % price change 24H */}
           {/* If there is no profit a "-" will automatically be displayed, but if there is profit a "+" won't automatically  be displayed - this is why we have to determine if profit and conditionally render a "+" */}
-            {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+            {profit && "+"} 
+            {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
-          <span style={{fontSize: 22, fontWeight: 500}}>
-            {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
-          </span>
+        </span>
+        <span style={{fontSize: 22, fontWeight: 500}}>
+          {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
         </span>
       </Link>
     )
