@@ -46,7 +46,18 @@ const Carousel = () => {
   // We grab and map through the items from 'trending' from CryptoState
   const items = trending.map((coin) => {
     return (
-
+      // We use Link component in order to nav from the Carousel to the coin page
+      <Link
+        className={classes.carouselItem}
+        // Link to the coin's page
+        to={`/coins/${coin.id}`}
+      >
+        <img 
+          src={coin?.image}
+          alt={coin.name}
+          height="80"
+          style={{marginBotom: 10}} />
+      </Link>
     )
   })
 
