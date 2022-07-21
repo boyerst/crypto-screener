@@ -1,5 +1,5 @@
 import { makeStyles, Container, Typography  } from "@material-ui/core";
-import Carousel from './Carousel.js'
+import Carousel from './Carousel.js';
 
 
 
