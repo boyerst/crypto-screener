@@ -14,6 +14,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  carouselItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    textTransform: "uppercase",
+    color: "white",
+  },
 }));
 
 
@@ -73,7 +81,7 @@ const Carousel = () => {
           {/* If there is no profit a "-" will automatically be displayed, but if there is profit a "+" won't automatically  be displayed - this is why we have to determine if profit and conditionally render a "+" */}
             {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
-          <span>
+          <span style={{fontSize: 22, fontWeight: 500}}>
             {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
           </span>
         </span>
