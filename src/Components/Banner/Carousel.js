@@ -45,6 +45,10 @@ const Carousel = () => {
 
   // We grab and map through the items from 'trending' from CryptoState
   const items = trending.map((coin) => {
+
+    // Find out if the coin is in profit over past 24h
+    let profit = coin?.price_change_percentage_24h >= 0;
+
     return (
       // We use Link component in order to nav from the Carousel to the coin page
       <Link
@@ -57,6 +61,14 @@ const Carousel = () => {
           alt={coin.name}
           height="80"
           style={{marginBotom: 10}} />
+        <span>{coin?.symbol}
+          &nbsp;
+          <span>
+          {/* If there is profit within 24H then add a "+"  /   Then add the % price change 24H */}
+          {/* If there is no profit a "-" will automatically be displayed, but if there is profit a "+" won't automatically  be displayed - this is why we have to determine if profit and conditionally render a "+" */}
+            {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+          </span>
+        </span>
       </Link>
     )
   })
@@ -86,6 +98,8 @@ const Carousel = () => {
         animationDuration={1500}
         // Removed indexed dots
         disableDotsControls
+        // Remove nav arrows
+        disableButtonsControls
         // Responsive = how many items on screen at a time
         // See object defined above
         responsive={responsive}
