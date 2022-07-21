@@ -17,12 +17,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
 const Carousel = () => {
 
 
   // Initial state is an empty array
   const [trending, setTrending] = useState([])
-  const { currency } = CryptoState()
+  const { currency, symbol } = CryptoState()
 
   const fetchTrendingCoins = async () => {
     // Pass in the API endpoint
@@ -67,6 +72,9 @@ const Carousel = () => {
           {/* If there is profit within 24H then add a "+"  /   Then add the % price change 24H */}
           {/* If there is no profit a "-" will automatically be displayed, but if there is profit a "+" won't automatically  be displayed - this is why we have to determine if profit and conditionally render a "+" */}
             {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+          </span>
+          <span>
+            {symbol} {numberWithCommas(coin?.current_price.toFixed(2))}
           </span>
         </span>
       </Link>
