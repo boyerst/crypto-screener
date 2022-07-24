@@ -170,6 +170,26 @@ const CoinsTable = () => {
                             height="50"
                             style={{ marginBottom: 10 }}
                           />
+                          <div
+                            style={{ display: "flex", flexDirection: "column"}}
+                          >
+                            <span
+                              style={{
+                                textTransform: "uppercase",
+                                fontSize: 22
+                              }}
+                            >
+                              {row.symbol}
+                            </span>
+                            <span
+                              style={{
+                                color: "darkgrey"
+                              }}
+                            >
+                              {row.name}
+                            </span>
+                            
+                          </div>
                         </TableCell>
                       </TableRow>
                     )   
