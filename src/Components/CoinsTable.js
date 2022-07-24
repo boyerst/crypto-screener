@@ -68,6 +68,17 @@ const CoinsTable = () => {
   });
 
 
+  const handleSearch = () => {
+    return coins.filter(
+      (coin) =>
+        // Filter and include the following in the search results...
+          // If the name of the coin (in lowercase) matches the users' search results
+          // If the symbol of the coins (in lowercase) matches the users' search results
+        coin.name.toLowerCase().includes(search) ||
+        coin.symbol.toLowerCase().includes(search)
+    );
+  };
+
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -101,6 +112,7 @@ const CoinsTable = () => {
                           fontFamily: "Montserrat",
                         }}
                         key={head}
+                        // When the map key is a "Coin" render "", else render the key to the right ❓
                         align={head === "Coin" ? "" : "right"}
                       >
                         {head}
