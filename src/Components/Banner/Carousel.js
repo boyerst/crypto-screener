@@ -5,7 +5,7 @@ import axios from "axios";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
 import AliceCarousel from "react-alice-carousel";
-
+import { numberWithCommas } from "../CoinsTable";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+
 
 
 const Carousel = () => {

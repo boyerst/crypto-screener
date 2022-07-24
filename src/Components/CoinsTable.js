@@ -33,7 +33,9 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const CoinsTable = () => {
 
@@ -45,7 +47,7 @@ const CoinsTable = () => {
   const history = useHistory()
 
 
-  const { currency } = CryptoState()
+  const { currency, symbol } = CryptoState()
 
 
   const fetchCoins = async () => {
@@ -191,7 +193,17 @@ const CoinsTable = () => {
                             
                           </div>
                         </TableCell>
-                        <TableCell>
+                        <TableCell align="right">
+                          {symbol}{" "}
+                          {numberWithCommas(row.current_price.toFixed(2))}                          
+                        </TableCell>
+                        <TableCell
+                          align="right"
+                          style={{
+                            color: profit > 0 ? "rgb(14, 203, 129)"  : "red",
+                            fontWeight: 500
+                          }}
+                        >
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
