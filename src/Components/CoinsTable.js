@@ -191,6 +191,12 @@ const CoinsTable = () => {
                             
                           </div>
                         </TableCell>
+                        <TableCell>
+                          {profit && "+"}
+                          {row.price_change_percentage_24h.toFixed(2)}%
+                        </TableCell>
+
+
                       </TableRow>
                     )   
                   })}
