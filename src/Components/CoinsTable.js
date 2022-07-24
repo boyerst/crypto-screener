@@ -14,9 +14,25 @@ import {
   TableBody 
 } from "@material-ui/core";
 import { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
+
+
+
+
+const useStyles = makeStyles(() => ({
+  row: {
+    backgroundColor: "#16171a",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "#131111",
+    },
+    fontFamily: "Montserrat",
+  }
+}));
+
 
 
 const CoinsTable = () => {
@@ -25,6 +41,8 @@ const CoinsTable = () => {
   const [coins, setCoins] = useState([])
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("") 
+  // We need to define the history prop to use for react-router
+  const history = useHistory()
 
 
   const { currency } = CryptoState()
@@ -67,6 +85,10 @@ const CoinsTable = () => {
       type: "dark",
     },
   });
+
+
+  const classes = useStyles();
+
 
 
   const handleSearch = () => {
