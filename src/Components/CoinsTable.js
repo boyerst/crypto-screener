@@ -1,4 +1,4 @@
-import { makeStyles, createTheme, ThemeProvider } from "@material-ui/core";
+import { makeStyles, createTheme, ThemeProvider, Container, Typography } from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CoinList } from "../config/api";
@@ -56,6 +56,14 @@ const CoinsTable = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <Container style={{ textAlign: "center"}}>
+        <Typography
+          variant="h4"
+          style={{ margin: 18, fontFamily: "Montserrat" }}
+        >
+          Cryptocurrency Prices by Market Cap
+        </Typography>
+      </Container>
       
     </ThemeProvider>
   )
