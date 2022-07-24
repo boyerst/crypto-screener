@@ -1,4 +1,13 @@
-import { makeStyles, createTheme, ThemeProvider, Container, Typography, TextField } from "@material-ui/core";
+import { 
+  makeStyles, 
+  createTheme, 
+  ThemeProvider, 
+  Container, 
+  Typography, 
+  TextField, 
+  TableContainer,
+  LinearProgress 
+} from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CoinList } from "../config/api";
@@ -10,6 +19,8 @@ const CoinsTable = () => {
   // Initial state is an empty array
   const [coins, setCoins] = useState([])
   const [loading, setLoading] = useState(false)
+  const [search, setSearch] = useState("") 
+
 
   const { currency } = CryptoState()
 
@@ -67,8 +78,20 @@ const CoinsTable = () => {
           label="Search for coins..." 
           variant="outlined"
           style={{ marginBottom: 20, width: "100%" }}
-
+          onChange={(e) => setSearch(e.target.value)}
         />
+
+        <TableContainer>
+          {
+            loading ? (
+              <LinearProgress style={{ backgroundColor: "gold" }}/>
+            ) : (
+              <> </>
+            )}
+        </TableContainer>
+
+
+
       </Container>
     </ThemeProvider>
   )
