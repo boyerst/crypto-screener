@@ -1,4 +1,4 @@
-import { makeStyles, createTheme, ThemeProvider, Container, Typography } from "@material-ui/core";
+import { makeStyles, createTheme, ThemeProvider, Container, Typography, TextField } from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CoinList } from "../config/api";
@@ -63,8 +63,13 @@ const CoinsTable = () => {
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
+        <TextField 
+          label="Search for coins..." 
+          variant="outlined"
+          style={{ marginBottom: 20, width: "100%" }}
+
+        />
       </Container>
-      
     </ThemeProvider>
   )
 
