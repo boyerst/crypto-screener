@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
@@ -15,6 +15,7 @@ const CoinsTable = () => {
 
 
   const fetchCoins = async () => {
+    setLoading(true)
     // Object Destructuring...
     // We receive an object from CoinGecko API call called 'data' f - wrapping it in braces destructures the data
       // If we just declared the data without braces then we would have to refer to said data as 'data.data'
@@ -29,7 +30,17 @@ const CoinsTable = () => {
       // const { data } = { data }
           // Accessing props only requires chaining data directly to prop: data.prop
     const { data } = await axios.get(CoinList(currency))
+    setCoins(data)
+    setLoading(false)
   }
+
+  console.log(coins)
+
+  // We call fetchTrending when our component is rendered the first time
+  useEffect(() => {
+    fetchCoins()
+    // Add currency as dependency so API call is re-fetched when user selects different currency
+  }, [currency])
 
   return (
     <div>
