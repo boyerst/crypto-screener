@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, createTheme, ThemeProvider } from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { CoinList } from "../config/api";
@@ -42,10 +42,22 @@ const CoinsTable = () => {
     // Add currency as dependency so API call is re-fetched when user selects different currency
   }, [currency])
 
+
+  const darkTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#fff",
+      },
+      type: "dark",
+    },
+  });
+
+
+
   return (
-    <div>
-      CoinsTable
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      
+    </ThemeProvider>
   )
 
 }
