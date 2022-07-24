@@ -10,7 +10,8 @@ import {
   Table, 
   TableHead,
   TableRow, 
-  TableCell 
+  TableCell,
+  TableBody 
 } from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -72,7 +73,7 @@ const CoinsTable = () => {
     return coins.filter(
       (coin) =>
         // Filter and include the following in the search results...
-          // If the name of the coin (in lowercase) matches the users' search results
+          // If the name of the coin (in lowercase) matches the users' search results         OR
           // If the symbol of the coins (in lowercase) matches the users' search results
         coin.name.toLowerCase().includes(search) ||
         coin.symbol.toLowerCase().includes(search)
@@ -120,6 +121,23 @@ const CoinsTable = () => {
                     ))}
                   </TableRow>
                 </TableHead>
+                <TableBody>
+              {/* handleSearch() will return the array of all of the coins, unless filtered by the user */}
+                  {handleSearch().map((row) => {
+                    const profit = row.price_change_percentage_24h > 0;
+                    return (
+                      <TableRow
+                        // Clicking on the coin takes the user to the coin's page
+                        onClick={() => history.push(`/coins/${row.id}`)}
+                        className={classes.row}
+                        // This key is for the map()
+                        key={row.name}
+                      >
+                        
+                      </TableRow>
+                    )   
+                  })}
+                </TableBody>
               </Table>
             )}
         </TableContainer>
