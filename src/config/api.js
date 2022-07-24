@@ -1,6 +1,37 @@
 // For CoinsTable
 export const CoinList = (currency) =>
   `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
+// RETURNS
+  //  {
+  //   "id": "bitcoin",
+  //   "symbol": "btc",
+  //   "name": "Bitcoin",
+  //   "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+  //   "current_price": 22562,
+  //   "market_cap": 431167238704,
+  //   "market_cap_rank": 1,
+  //   "fully_diluted_valuation": 474021167496,
+  //   "total_volume": 42961595701,
+  //   "high_24h": 22976,
+  //   "low_24h": 22048,
+  //   "price_change_24h": -226.1253314407004,
+  //   "price_change_percentage_24h": -0.99228,
+  //   "market_cap_change_24h": -3905468048.621765,
+  //   "market_cap_change_percentage_24h": -0.89766,
+  //   "circulating_supply": 19101493,
+  //   "total_supply": 21000000,
+  //   "max_supply": 21000000,
+  //   "ath": 69045,
+  //   "ath_change_percentage": -67.31654,
+  //   "ath_date": "2021-11-10T14:24:11.849Z",
+  //   "atl": 67.81,
+  //   "atl_change_percentage": 33179.09658,
+  //   "atl_date": "2013-07-06T00:00:00.000Z",
+  //   "roi": null,
+  //   "last_updated": "2022-07-24T01:14:52.102Z"
+  // },
+
+
 
 export const SingleCoin = (id) =>
   `https://api.coingecko.com/api/v3/coins/${id}`;

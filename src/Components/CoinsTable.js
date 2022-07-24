@@ -152,10 +152,25 @@ const CoinsTable = () => {
                         // Clicking on the coin takes the user to the coin's page
                         onClick={() => history.push(`/coins/${row.id}`)}
                         className={classes.row}
-                        // This key is for the map()
+                        // This key is for the map() - we map by each coins' name
                         key={row.name}
                       >
-                        
+                        <TableCell
+                          component="th"
+                          scope="row"
+                          styles={{
+                            display: "flex",
+                            gap: 15
+                          }}
+                        >
+                          <img 
+                            // We use Optional Chaining so that JS will return undefined instead of an exception if the coin does not have a image
+                            src={row?.image}
+                            alt={row.name}
+                            height="50"
+                            style={{ marginBottom: 10 }}
+                          />
+                        </TableCell>
                       </TableRow>
                     )   
                   })}
