@@ -24,7 +24,9 @@ import { CryptoState } from "../CryptoContext";
 
 const useStyles = makeStyles(() => ({
   row: {
+    // Background color is same as app
     backgroundColor: "#16171a",
+    // Cursor is hand with pointer finger
     cursor: "pointer",
     "&:hover": {
       backgroundColor: "#131111",
@@ -160,7 +162,7 @@ const CoinsTable = () => {
                         <TableCell
                           component="th"
                           scope="row"
-                          styles={{
+                          style={{
                             display: "flex",
                             gap: 15
                           }}
