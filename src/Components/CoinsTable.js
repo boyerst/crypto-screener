@@ -13,6 +13,7 @@ import {
   TableCell,
   TableBody 
 } from "@material-ui/core";
+import Pagination from "@material-ui/lab/Pagination"
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -228,7 +229,14 @@ const CoinsTable = () => {
               </Table>
             )}
         </TableContainer>
-
+        <Pagination 
+          // count = how many pages will be required
+            // We reference this number from handleSearch()
+              // We divide the total number by 10 as we want 10 items/page
+              // We call toFixed because we do not want decimals
+          // We use Optional Chaining operator in case the return from handleSearch() is empty
+          count={(handleSearch()?.length/10).toFixed(0)}
+        />
 
 
       </Container>
