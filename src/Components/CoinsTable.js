@@ -72,7 +72,7 @@ const CoinsTable = () => {
     setLoading(false)
   }
 
-  console.log(coins)
+  console.log("Coins from fetchCoins: ", coins)
 
   // We call fetchTrending when our component is rendered the first time
   useEffect(() => {
@@ -130,6 +130,7 @@ const CoinsTable = () => {
             ) : (
               <Table>
                 <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                {/* We create an array for the TableHead column titles and simply map through it using 'head' as the 'currentValue' argument*/}
                   <TableRow>
                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                       <TableCell
@@ -139,7 +140,8 @@ const CoinsTable = () => {
                           fontFamily: "Montserrat",
                         }}
                         key={head}
-                        // When the map key is a "Coin" render "", else render the key to the right ❓
+                        // When the value is "Coin" render "", else align the value to the right side of the cell
+                          // "" = default which is left-align ❓❓❓
                         align={head === "Coin" ? "" : "right"}
                       >
                         {head}
@@ -148,7 +150,7 @@ const CoinsTable = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-              {/* handleSearch() will return the array of all of the coins, unless filtered by the user */}
+              {/* handleSearch() will return the array of objects of all the coins, unless filtered by the user */}
                   {handleSearch().map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (

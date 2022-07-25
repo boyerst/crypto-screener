@@ -44,7 +44,7 @@ const Carousel = () => {
     setTrending(data)
   }
 
-  console.log(currency, trending)
+  console.log(currency, "Trending from fetchTrendingCoins: ", trending)
 
   // We call fetchTrending when our component is rendered the first time
   useEffect(() => {
@@ -54,7 +54,9 @@ const Carousel = () => {
 
   const classes = useStyles()
 
-  // We grab and map through the items from 'trending' from CryptoState
+  // We grab and map through the array of object called 'trending' from CryptoState
+  // We are referring to the 'currentValue' in the array using 'coin'
+  // 'coin' is an object, thus when we need properties from the object we must chain: currentValue.property
   const items = trending.map((coin) => {
 
     // Find out if the coin is in profit over past 24h
