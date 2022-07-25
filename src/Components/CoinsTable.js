@@ -33,7 +33,14 @@ const useStyles = makeStyles(() => ({
       backgroundColor: "#131111",
     },
     fontFamily: "Montserrat",
-  }
+  },
+  // Styling each list item within the Pagination component
+  // "The MuiPagination name can be used for providing default props or style overrides at the theme level"
+  pagination: {
+    "& .MuiPaginationItem-root": {
+      color: "gold",
+    },
+  },
 }));
 
 export function numberWithCommas(x) {
@@ -236,12 +243,15 @@ const CoinsTable = () => {
               // We call toFixed because we do not want decimals
           // We use Optional Chaining operator in case the return from handleSearch() is empty
           count={(handleSearch()?.length/10).toFixed(0)}
+          // Style the component as a whole
           style={{
             padding: 20,
             width: "100%",
             display: "flex",
             justifyContent: "center",
           }}
+          // Style each item within the component - since it is a list we insert 'ul: ' and add the styles to useStyles()
+          classes={{ ul: classes.pagination }}
         />
 
 
