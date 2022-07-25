@@ -252,6 +252,18 @@ const CoinsTable = () => {
           }}
           // Style each item within the component - since it is a list we insert 'ul: ' and add the styles to useStyles()
           classes={{ ul: classes.pagination }}
+          // Pagination logic
+            // Pass in _ to indicate that the first parameter is not to be used
+              // In the onChange for the Pagination component, the arguments are as follows
+                  // function(event: object, page: number) => void
+              // ... so we are ignoring 'event: object'
+            // Pass in the page value that is selected
+          onChange={(_, value) => {
+            // setPage to update 'page' state => 'page' state is updated => .slice() using page state is updated and re-rendered
+            setPage(value);
+            // Scroll the window - not to the top - but to 450 pixels
+            window.scroll(0, 450);
+          }}
         />
 
 
