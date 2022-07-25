@@ -236,6 +236,12 @@ const CoinsTable = () => {
               // We call toFixed because we do not want decimals
           // We use Optional Chaining operator in case the return from handleSearch() is empty
           count={(handleSearch()?.length/10).toFixed(0)}
+          style={{
+            padding: 20,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
         />
 
 
