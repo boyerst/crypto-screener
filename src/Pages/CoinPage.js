@@ -5,10 +5,22 @@ import { useState } from 'react';
 
 
 const CoinPage = () => {
-  // We take the id from our URL that we click on in the HomePage and use this id to fetch one single coin from the CoinGecko API
-    // We do this using useParams() from react-router-dom
-  // We destructure the id var we get from the url
+
+  // How does useParams() work?
+    // 1. In CoinsTable, there is a clickable link in each coins' TableRow that has a URL of /coins/${row.id}
+          // We get this id from the CoinList API
+    // 2. Clicking on said link brings us to each coins specific CoinPage
+          // When we nav there, our url will read /coins/:id where :id is the name of the coin as specified by the data returned from the CoinList API
+    // 3. We use the useParams() hook to access the dynamic portion of the url that is :id or the coin name and also declare it here in the CoinPage
+    // 4. Now that we have defined it, we can use that :id to pass to the SingleCoin API here in the CoinPage 
+          // This API returns all of the specific data pertaining to that :id or coin name
+
+
+  // We destructure the :id param we get from the url
+      // ❓Is this because useParams returns a object key-value pair and we only need the value ❓
   const { id } = useParams()
+  // If we rendered { id } below it would print 'bitcoin' on the 'bitcoin' CoinPage
+
   // Next we create a 'coin' state to store what we receive from our API
   const [coin, setCoin] = useState()
 
