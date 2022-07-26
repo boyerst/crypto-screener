@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import axios from "axios";
+import ReactHtmlParser from 'react-html-parser';
 import CoinInfo from "../components/CoinInfo";
 
 
@@ -100,7 +101,7 @@ const CoinPage = () => {
               We also use the split() method and pass the 'end of/beginning of sentence' pattern to divide the full description into an array of sentences
               We then select the first sentance of the array and only display this sentence
            */}
-          {coin?.description.en.split(". ")[0]}.
+          {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
         </Typography>
 
       </div>
