@@ -95,7 +95,13 @@ const CoinPage = () => {
         <Typography variant="h3" className={classes.heading}>
           {coin?.name}
         </Typography>
-      
+        <Typography variant="subtitle1" className={classes.description}>
+          {/* The API returns a description in many languages, thus we specify en
+              We also use the split() method and pass the 'end of/beginning of sentence' pattern to divide the full description into an array of sentences
+              We then select the first sentance of the array and only display this sentence
+           */}
+          {coin?.description.en.split(". ")[0]}.
+        </Typography>
 
       </div>
       {/* chart */}
