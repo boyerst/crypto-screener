@@ -1,5 +1,6 @@
 import { 
-  makeStyles, 
+  makeStyles,
+  Typography 
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
@@ -32,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     marginTop: 25,
     borderRight: "2px solid grey",
+  },
+  heading: {
+    fontWeight: "bold",
+    marginBottom: 20,
+    fontFamily: "Montserrat",
   },
 }))
 
@@ -86,6 +92,11 @@ const CoinPage = () => {
           height="200"
           style={{ marginBottom: 20 }}
         />
+        <Typography variant="h3" className={classes.heading}>
+          {coin?.name}
+        </Typography>
+      
+
       </div>
       {/* chart */}
       <CoinInfo coin={coin}/>
