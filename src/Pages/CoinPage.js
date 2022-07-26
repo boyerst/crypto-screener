@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
+import axios from "axios";
 
 
 
@@ -25,8 +27,20 @@ const CoinPage = () => {
   // Next we create a 'coin' state to store what we receive from our API
   const [coin, setCoin] = useState()
 
-  const { currency, symbol } = CryptoState()
+  const { currency, symbol } = CryptoState() 
 
+  // Fetch coin data from SingleCoin API and set it to coin state using setCoin updating function
+  const fetchCoin = async () => {
+    const { data } = await axios.get(SingleCoin(id))
+    setCoin(data)
+  }
+
+  console.log(coin)
+
+  // We call fetchCoin / SingleCoin API using useEffect
+  useEffect(() => {
+    fetchCoin()    
+  }, [])
 
   return (
     <div>
