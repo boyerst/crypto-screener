@@ -21,6 +21,18 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
   },
+  sidebar: {
+    width: "30%",
+    // If viewport is less than md size, make sidebar 100% of the viewport
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: 25,
+    borderRight: "2px solid grey",
+  },
 }))
 
 
