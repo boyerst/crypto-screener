@@ -9,7 +9,19 @@ import axios from "axios";
 import CoinInfo from "../components/CoinInfo";
 
 
-const useStyles = makeStyles(() => ({}))
+const useStyles = makeStyles((theme) => ({
+  container: {
+    // Flex will align the two components (sidebar and chart) side by side (horizontally)
+    display: "flex",
+    // theme is passed into makeStyles
+    // .breakpoints.down("size") is how we make the page responsive
+      // .down("md") = If the viewport is less than the defined medium size, then change the styles to: ...
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  },
+}))
 
 
 
@@ -56,7 +68,7 @@ const CoinPage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.sidebar}>
-        {/* sidebar */}
+        sidebar
       </div>
       {/* chart */}
       <CoinInfo coin={coin}/>
