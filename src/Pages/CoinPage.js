@@ -1,9 +1,14 @@
-import React from 'react';
+import { 
+  makeStyles, 
+} from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import axios from "axios";
+
+
+const useStyles = makeStyles(() => ({}))
 
 
 
@@ -41,6 +46,11 @@ const CoinPage = () => {
   useEffect(() => {
     fetchCoin()    
   }, [])
+
+
+  const classes = useStyles();
+
+
 
   return (
     <div>
