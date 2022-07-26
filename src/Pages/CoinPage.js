@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import axios from "axios";
+import CoinInfo from "../components/CoinInfo";
 
 
 const useStyles = makeStyles(() => ({}))
@@ -53,8 +54,12 @@ const CoinPage = () => {
 
 
   return (
-    <div>
-      CoinPage
+    <div className={classes.container}>
+      <div className={classes.sidebar}>
+        {/* sidebar */}
+      </div>
+      {/* chart */}
+      <CoinInfo coin={coin}/>
     </div>
   )
 
