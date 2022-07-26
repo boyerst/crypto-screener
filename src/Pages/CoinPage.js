@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { useState } from 'react';
+import { CryptoState } from "../CryptoContext";
 
 
 
@@ -24,6 +25,7 @@ const CoinPage = () => {
   // Next we create a 'coin' state to store what we receive from our API
   const [coin, setCoin] = useState()
 
+  const { currency, symbol } = CryptoState()
 
 
   return (
