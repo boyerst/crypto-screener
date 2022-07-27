@@ -1,6 +1,7 @@
 import { 
   makeStyles,
-  Typography 
+  Typography, 
+  LinearProgress 
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
@@ -9,7 +10,7 @@ import { CryptoState } from "../CryptoContext";
 import axios from "axios";
 import ReactHtmlParser from 'react-html-parser';
 import CoinInfo from "../components/CoinInfo";
-import { numberWithCommas } from "../CoinsTable";
+import { numberWithCommas } from "../components/CoinsTable";
 
 
 
@@ -92,7 +93,9 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-
+  // Show loading when coin is loading
+  // If 'coin' is not populated all of the below numberWithCommas() functions will throw errors
+  if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
     <div className={classes.container}>
@@ -124,6 +127,30 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography variant="h5" style={{ fontFamily: "Monserrat" }}>
               {numberWithCommas(coin?.market_cap_rank)}
+            </Typography>
+          </span>
+          <span style={{ display: "flex" }}>
+            <Typography variant="h5" className={classes.heading}>
+              Current Price: 
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography variant="h5" style={{ fontFamily: "Monserrat" }}>
+              {symbol}{" "}
+              {/* current_price is an object containing many key-val pairs of currency/current_price
+                  In order to fetch the current_price of the currency currently selected by the user, we must pass that in lower case letters
+               */}
+              {numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()])}
+              
+            </Typography>
+          </span>
+          <span style={{ display: "flex" }}>
+            <Typography variant="h5" className={classes.heading}>
+              Market Cap: 
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography variant="h5" style={{ fontFamily: "Monserrat" }}>
+              {symbol}{" "}
+              {numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()])}
             </Typography>
           </span>
           
