@@ -40,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
     fontFamily: "Montserrat",
   },
+  description: {
+    width: "100%",
+    fontFamily: "Montserrat",
+    padding: 25,
+    paddingBottom: 15,
+    paddingTop: 0,
+    textAlign: "justify",
+  },
 }))
 
 
@@ -97,9 +105,12 @@ const CoinPage = () => {
           {coin?.name}
         </Typography>
         <Typography variant="subtitle1" className={classes.description}>
-          {/* The API returns a description in many languages, thus we specify en
+          {/* The API returns a description in many languages, thus we specify en for english
               We also use the split() method and pass the 'end of/beginning of sentence' pattern to divide the full description into an array of sentences
               We then select the first sentance of the array and only display this sentence
+           */}
+           {/* Some of the descriptions have HTML embedded within them, thus they are rendered as such
+              We wrap the description in ReactHtmlParser to covert the html tags into react components
            */}
           {ReactHtmlParser(coin?.description.en.split(". ")[0])}.
         </Typography>
