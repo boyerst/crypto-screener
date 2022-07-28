@@ -36,8 +36,19 @@ export const CoinList = (currency) =>
 export const SingleCoin = (id) =>
   `https://api.coingecko.com/api/v3/coins/${id}`;
 
+
+// For chart
 export const HistoricalChart = (id, days = 365, currency) =>
   `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${days}`;
+// Takes coin id
+// Take days
+    // We will pass in the amount of days we want to see the data for
+
+
+
+
+
+
 
 // For Carousel
 export const TrendingCoins = (currency) =>
