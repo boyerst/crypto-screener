@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
-import { createTheme  } from "@material-ui/core";
+import { createTheme, ThemeProvider  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 
@@ -40,9 +40,9 @@ const CoinInfo = ( {coin} ) => {
 
 
   return (
-    <div>
-      CoinInfo
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      
+    </ThemeProvider>
   )    
 }
 
