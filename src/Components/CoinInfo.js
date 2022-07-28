@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
-import { createTheme, ThemeProvider  } from "@material-ui/core";
+import { createTheme, ThemeProvider, makeStyles  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
+
+
+const useStyles = makeStyles({});
+
 
 
 // Coin is passed from CoinPage where we set 'coin' state with data from the SingleCoin API
@@ -35,13 +39,16 @@ const CoinInfo = ( {coin} ) => {
     },
   });
 
+  const classes = useStyles();
 
-  console.log(coin)
+  console.log(historicData)
 
 
   return (
     <ThemeProvider theme={darkTheme}>
-      
+      <div className={classes.container}>
+        
+      </div>
     </ThemeProvider>
   )    
 }
