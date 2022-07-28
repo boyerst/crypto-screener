@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { CryptoState } from "../CryptoContext";
+import axios from "axios";
+import { HistoricalChart } from "../config/api";
 
 
-const CoinInfo = () => {
+// Coin is passed from CoinPage where we set 'coin' state with data from the SingleCoin API
+const CoinInfo = ( {coin} ) => {
 
-  const [historicalData, setHistoricalData] = useState()
+  const [historicData, setHistoricData] = useState()
   // Default set to 1 day
   const [days, setDays] = useState(1)
 
-  const { currency, symbol } = CryptoState()
+  const { currency } = CryptoState()
+
+  const fetchHistoricData = async () => {
+    const { data } = await axios.get(HistoricalChart(coin.id, days, currency))
+    setHistoricData(data.prices)
+  }
+
+  console.log(historicData)
 
 
   return (
