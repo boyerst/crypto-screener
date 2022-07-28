@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
+import { createTheme  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 
@@ -15,10 +16,27 @@ const CoinInfo = ( {coin} ) => {
 
   const fetchHistoricData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency))
+    // We only want the prices
     setHistoricData(data.prices)
   }
 
-  console.log(historicData)
+  useEffect(() => {
+    fetchHistoricData()
+    // Dependencies: API will be called when currency or days change 
+  }, [currency, days])
+
+
+  const darkTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#fff",
+      },
+      type: "dark",
+    },
+  });
+
+
+  console.log(coin)
 
 
   return (
