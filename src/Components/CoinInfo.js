@@ -3,7 +3,7 @@ import { CryptoState } from "../CryptoContext";
 import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
-
+import { Line } from "react-chartjs-2";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -76,7 +76,26 @@ const CoinInfo = ( {coin} ) => {
             />
           ) : (
             <>
-
+              <Line 
+                data={{
+                  // We map() through the array of arrays - each containing a date at the [0] index and a price at the [1] index
+                  labels: historicData.map(() => {
+                    // We pass in the date from our data (which sits in the 0 index of each date/price array) to convert it into a human readable date
+                    // We need both Date and Time because time will be displayed for prices on lower timeframes and only date will be displayed on higher timeframes
+                    let date = new Date(coin[0])      
+                    let time =
+                      // If hours are greater than 12...
+                      date.getHours() > 12
+                        // Display as PM in 12 hour format
+                        ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                        // Else display as AM in 12 hour format
+                        : `${date.getHours()}:${date.getMinutes()} AM`;
+                    // If 'days' (timeframe) is set to 1 (ie daily) then return the time : else return the date for display on higher timeframes
+                    return days === 1 ? time : date.toLocaleDateString();
+                  }),
+                  
+                }}
+              />
             </>
           )
         }
