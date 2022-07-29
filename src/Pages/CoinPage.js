@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sidebar: {
+    // Sidebar width is 30% and chart will be 75%
     width: "30%",
     // If viewport is less than md size, make sidebar 100% of the viewport
     [theme.breakpoints.down("md")]: {

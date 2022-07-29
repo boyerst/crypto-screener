@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { CryptoState } from "../CryptoContext";
-import { createTheme, ThemeProvider, makeStyles  } from "@material-ui/core";
+import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 
 
-const useStyles = makeStyles(() => ({
+
+const useStyles = makeStyles((theme) => ({
   container: {
     width: "75%",
     display: "flex",
@@ -65,7 +66,20 @@ const CoinInfo = ( {coin} ) => {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
-        
+        {
+          // If there is NO data in historicalData state, show loader
+          !historicData ? (
+            <CircularProgress 
+              style={{ color: "gold" }}
+              size={250}
+              thickness={1}
+            />
+          ) : (
+            <>
+
+            </>
+          )
+        }
       </div>
     </ThemeProvider>
   )    
