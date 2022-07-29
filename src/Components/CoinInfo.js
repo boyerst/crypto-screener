@@ -5,7 +5,25 @@ import axios from "axios";
 import { HistoricalChart } from "../config/api";
 
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles(() => ({
+  container: {
+    width: "75%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 25,
+    padding: 40,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      marginTop: 0,
+      padding: 20,
+      paddingTop: 0,
+    },
+  },
+}));
+
+
 
 
 
