@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@mate
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale } from 'chart.js';
+ChartJS.register(CategoryScale);
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,8 +95,9 @@ const CoinInfo = ( {coin} ) => {
                     // If 'days' (timeframe) is set to 1 (ie daily) then return the time : else return the date for display on higher timeframes
                     return days === 1 ? time : date.toLocaleDateString();
                   }),
-                  
+
                 }}
+
               />
             </>
           )
