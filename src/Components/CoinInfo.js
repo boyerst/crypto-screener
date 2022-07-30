@@ -81,7 +81,7 @@ const CoinInfo = ( {coin} ) => {
               <Line 
                 data={{
                   // We map() through the array of arrays - each containing a date at the [0] index and a price at the [1] index
-                  labels: historicData.map(() => {
+                  labels: historicData.map((coin) => {
                     // We pass in the date from our data (which sits in the 0 index of each date/price array) to convert it into a human readable date
                     // We need both Date and Time because time will be displayed for prices on lower timeframes and only date will be displayed on higher timeframes
                     let date = new Date(coin[0])      
