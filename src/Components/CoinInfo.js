@@ -3,6 +3,7 @@ import { CryptoState } from "../CryptoContext";
 import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@material-ui/core";
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
+import { chartDays } from "../config/api";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -112,8 +113,10 @@ const CoinInfo = ( {coin} ) => {
                     },
                   },
                 }}
-
               />
+              <div>
+                {chartDays}
+              </div>
             </>
           )
         }
