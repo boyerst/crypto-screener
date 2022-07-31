@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@mate
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 import { chartDays } from "../config/data";
-import 
+import SelectButton from "./SelectButton";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
