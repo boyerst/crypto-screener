@@ -4,8 +4,8 @@ import { createTheme, ThemeProvider, makeStyles, CircularProgress  } from "@mate
 import axios from "axios";
 import { HistoricalChart } from "../config/api";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js';
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 
 const useStyles = makeStyles((theme) => ({
@@ -80,6 +80,7 @@ const CoinInfo = ( {coin} ) => {
             <>
               <Line 
                 data={{
+                  // Map() data for datetime for label
                   // We map() through the array of arrays - each containing a date at the [0] index and a price at the [1] index
                   labels: historicData.map((coin) => {
                     // We pass in the date from our data (which sits in the 0 index of each date/price array) to convert it into a human readable date
@@ -95,6 +96,7 @@ const CoinInfo = ( {coin} ) => {
                     // If 'days' (timeframe) is set to 1 (ie daily) then return the time : else return the date for display on higher timeframes
                     return days === 1 ? time : date.toLocaleDateString();
                   }),
+                  // Map() data for price for Line chart ❓ and price for Y axis labels ❓
                   datasets: [
                     {
                       data: historicData.map((coin) => coin[1]),
