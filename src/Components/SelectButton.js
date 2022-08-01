@@ -2,7 +2,7 @@ import { makeStyles  } from "@material-ui/core";
 
 
 
-const useStyles = makeStyles((selected, onClick) => ({
+const useStyles = makeStyles(({selected}) => ({
   selectbutton: {
     border: "1px solid gold",
     borderRadius: 5,
@@ -26,9 +26,11 @@ const useStyles = makeStyles((selected, onClick) => ({
 
 // Pass in children so that anything written inside of children will be written in the object in the component
 // Pass in selected to change styles when button is selected
-const SelectButton = ({children, selected, onClick}) => {
-  
-  const classes = useStyles()
+const SelectButton = ({children, onClick, selected}) => {
+
+
+
+  const classes = useStyles({selected})
 
 
   return(
