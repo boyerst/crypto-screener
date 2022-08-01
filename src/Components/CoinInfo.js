@@ -124,7 +124,15 @@ const CoinInfo = ( {coin} ) => {
                 }}
               >
                 {chartDays.map((day) => (
-                  <SelectButton>{day.label}</SelectButton>    
+                  <SelectButton
+                    key={day.value}
+                    // Set day state with with the day.value of the button that user clicks in
+                    onClick={() => setDays(day.value)}
+                    // Button is 'selected' when day.value is equal to day state
+                    selected={day.value === days}
+                  >
+                    {day.label}
+                  </SelectButton>    
                 ))}
               </div>
             </>
