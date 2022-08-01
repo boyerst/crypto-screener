@@ -3,9 +3,9 @@
 const SelectButton = ({children}) => {
   
   return(
-    <div>
+    <span>
       {children}
-    </div>
+    </span>
   )
 }
 

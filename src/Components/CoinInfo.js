@@ -124,7 +124,7 @@ const CoinInfo = ( {coin} ) => {
                 }}
               >
                 {chartDays.map((day) => (
-                  <button>{day.label}</button>    
+                  <SelectButton>{day.label}</SelectButton>    
                 ))}
               </div>
             </>
