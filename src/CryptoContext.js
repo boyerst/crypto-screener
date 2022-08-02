@@ -12,7 +12,7 @@ const CryptoContext = ({children}) => {
 
   // This will run everytime the currency changes, hence why we have currency set as a dependency
   useEffect(() => {
-    if (currency === "INR") setSymbol("₹");
+    if (currency === "BTC") setSymbol("₿");
     else if (currency === "USD") setSymbol("$");
   // This function is dependent on currency, thus whenever currency changes, the function will run and conditionally apply symbols
   }, [currency]);
