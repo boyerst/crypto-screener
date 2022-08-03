@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     height: 400, 
     display: "flex",
     flexDirection: "column",
-    paddingTop: 25, 
+    paddingTop: 15, 
     justifyContent: "space-around",
   },
   tagline: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
     height: "40%",
     flexDirection: "column",
     justifyContent: "center",
-    textAlign: "center"
+    textAlign: "center",
   }
 }));
 
@@ -38,6 +38,7 @@ const Banner = () => {
               fontWeight: "bold",
               marginBottom: 15, 
               fontFamily: "Montserrat",
+              marginTop: -100
             }}
           >
             Crypto Screener
@@ -48,6 +49,7 @@ const Banner = () => {
               color: "darkgrey",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
+              marginBottom: 20
             }}
           >
             Find Info For All Your Favorite Cryptos
